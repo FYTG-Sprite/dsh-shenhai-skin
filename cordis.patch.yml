@@ -1,0 +1,13 @@
+# dsh-shenhai-skin: mount the host route and the browser skin.
+#
+# The bundle row's specifier must equal the package name (client-modules matches
+# the loader specifier against the nearest package.json name).
+#
+# Optional config (add to your profile's cordis.patch.yml on this id):
+#   videoPath: /absolute/path/to/another-video.mp4
+#   opacity: 0.72   # shell surface opacity, 0.25..1
+#   blur: 0         # backdrop blur in px, 0..40
+#   dim: 0.18       # video scrim, 0..0.7
+- insert:
+    - id: shenhai-skin
+      name: 'dsh-shenhai-skin'

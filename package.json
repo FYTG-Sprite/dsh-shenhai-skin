@@ -1,0 +1,51 @@
+{
+  "name": "dsh-shenhai-skin",
+  "version": "0.4.1",
+  "description": "Dynamic video skin for DeepSeek Harness: loop a local video as a translucent, glass-tinted app wallpaper. · DSH 动态皮肤：将本地视频循环播放为半透明毛玻璃界面背景。",
+  "type": "module",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "author": "FYTG-Sprite",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FYTG-Sprite/dsh-shenhai-skin.git"
+  },
+  "homepage": "https://github.com/FYTG-Sprite/dsh-shenhai-skin#readme",
+  "bugs": {
+    "url": "https://github.com/FYTG-Sprite/dsh-shenhai-skin/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "skin",
+    "wallpaper",
+    "video"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "docs",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.7"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  }
+}
