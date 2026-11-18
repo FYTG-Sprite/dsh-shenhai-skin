@@ -1,6 +1,6 @@
 # dsh-shenhai-skin · DSH 动态皮肤
 
-把一段本地视频循环播放为 DeepSeek Harness 界面背后的动态壁纸：外壳变成一层半透明玻璃，聊天区、侧栏、右侧面板都能透出视频；菜单、代码块和输入框保留足够的不透明度，保证可读性。右下角有一个玻璃质感的小按钮，可随时开关、调整界面不透明度、背景虚化和画面压暗。
+Steam游戏《蜃海》官方提供的DeepSeek Harness动态皮肤插件：外壳变成一层半透明玻璃，聊天区、侧栏、右侧面板都能透出视频；菜单、代码块和输入框保留足够的不透明度，保证可读性。右下角有一个玻璃质感的小按钮，可随时开关、调整界面不透明度、背景虚化和画面压暗。
 
 > 内置视频为 `assets/skin.mp4`（2560×1440，8 秒循环），随插件一起安装；也可以在配置里用 `videoPath` 指向自己的视频。
 
@@ -15,6 +15,7 @@
 - **可调外观**：界面不透明度（30%–100%）、视频虚化（0–24px）、画面压暗（0–60%）。
 - **背景音乐**：内置《浮光》《粼光缓动》两首曲目；可单独选择曲目，并切换「单曲循环」或「双曲循环」；默认关闭，音量 0–100% 可调，关闭皮肤时自动停止。
 - **游戏 Logo 按钮**：右下角使用《蜃海》Logo 的深色玻璃直角按钮（108×56），完整显示 DAWN OF THE ABYSS 与「蜃海」字样，带边框、悬停光晕和明确的点击态。
+- **侧栏鲸鱼 Logo**：DSH 左上角的 DeepSeek 品牌图形通过 CSS mask 换成插件自带的座头鲸剪影（`assets/humpback.png`），颜色跟随主题文字色，不改 DSH 本体。
 - **账号信息隐藏**：账号头像 / 昵称右侧有一个无边框、无底板的透明眼睛图标，点击即可隐藏 / 显示 DSH 左下角的用户头像和昵称；隐藏后该行只剩眼睛图标，账号按钮行本身仍可打开账号菜单；状态保存在本地，关闭皮肤时自动恢复显示。
 - **设置宣传图 + Steam 入口**：设置面板顶部显示《蜃海》宣传图，底部是一行内嵌 Steam 链接的宣传文案（链接紧接文案，不强制换行），可直接打开商店页面。
 - **中英双语设置**：面板内可切换「中文 / English」；英文版把蜃海译为 **Dawn of the Abyss**，所有设置项与宣传文案同步翻译。
@@ -173,6 +174,7 @@ English：
   - `/dsh-shenhai-skin/video.mp4`：带 `Accept-Ranges`、206 分片、ETag 与 304 的视频流；
   - `/dsh-shenhai-skin/music/fuguang.mp3`、`linguang.mp3`：`audio/mpeg`，同样支持 Range；
   - `/dsh-shenhai-skin/logo.png`、`promo.jpg`：设置按钮 Logo 与弹窗宣传图；
+  - `/dsh-shenhai-skin/humpback.png`：侧栏鲸鱼 Logo 的透明遮罩图；
   - `/dsh-shenhai-skin/config.json`：默认值文档。
 - **浏览器半侧**（`lib/client.js`）：挂载全屏视频层（`z-index: 0`），把 `#root` 抬到 `z-index: 1`；启用时在 `html[data-dsh-skin="on"]` 下把外壳与侧栏底色置为透明，并在视频层里放一层 `.dsh-skin-tint`（颜色取当前主题的 `--dsw-alias-bg-base`，alpha 由滑块控制）。深色玻璃由 `ctx.theme` 设置并记录原偏好。
 - **背景音乐**：一个隐藏的 `<audio>` 元素；单曲循环时 `loop=true`，双曲循环时监听 `ended` 并按 `fuguang → linguang → fuguang` 切换；默认关闭，音量、曲目和模式写入 `localStorage`；关闭皮肤时暂停。
@@ -190,6 +192,7 @@ dsh-shenhai-skin/
 ├── assets/icon-180.png # 插件市场方形图标
 ├── assets/logo.png     # 设置按钮用的《蜃海》Logo
 ├── assets/promo.jpg    # 设置弹窗宣传图
+├── assets/humpback.png # 侧栏鲸鱼 Logo 遮罩
 ├── lib/index.js        # 宿主半侧：视频/音乐/图片路由
 ├── lib/client.js       # 浏览器半侧：壁纸 + 音乐 + 双语控制面板 + 配色
 ├── cordis.patch.yml    # bundle 插入声明
